@@ -24,12 +24,17 @@ app.post('/messages', function(request, response) {
   message.id =messages.length+1
   messages.push(message)
   response.status(201).json(message) 
-  
-  
+    
 });
   app.get("/messages", function(request, response){
   response.json(messages);
  });
+
+app.get("/messages/:id",function(request, response){
+  const inputId= request.params.id
+const message =messages.filter(r=>r.id==inputId)
+       response.json(message)
+});
 app.listen(process.env.PORT);
 app.get('/', function(request, response) {
   response.sendFile(__dirname + '/index.html');
