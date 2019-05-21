@@ -2,9 +2,7 @@ const express = require("express");
 
 const app = express();
 const cors = require('cors');
- // const messages = require("./messages.json");
-
-app.use(express.urlencoded({ extended: false }))
+ app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 
 const welcomeMessage = {
