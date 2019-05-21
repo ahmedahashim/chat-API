@@ -18,11 +18,11 @@ const welcomeMessage = {
 //This array is our "data store".
 //We will start with one message in the array.
 //Note: messages will be lost when Glitch restarts our server.
- const messages = [welcomeMessage]
+ const messages= [welcomeMessage]
 
 app.post('/messages', function(request, response) {
   const message =request.body
-  console.log(message)
+  // console.log(message)
   message.id =messages.length+1
   messages.push(message)
   response.status(201).json(message) 
