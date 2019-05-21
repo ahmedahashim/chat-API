@@ -8,9 +8,9 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 
 const welcomeMessage = {
-  "id":0,
-  "from": "Bart",
-  "text": "Welcome to CYF chat system!"
+  id:0,
+  from: "Bart",
+  text: "Welcome to CYF chat system!"
 }
 
 //This array is our "data store".
