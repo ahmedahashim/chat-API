@@ -40,8 +40,8 @@ const message =messages.filter(r=>r.id==inputId)
 //Delete a message, by ID
 app.delete("/messages/:id", function(request, response){
   const inputId= request.params.id
-const message =messages.filter(r=>r.id==inputId)
-       response.sendStatus(204)
+const message =messages.filter(r=>r.id !=inputId)
+       response.Status(204).json(messages)
 });
 app.listen(process.env.PORT);
 app.get('/', function(request, response) {
