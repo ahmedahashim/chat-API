@@ -2,31 +2,31 @@ const express = require("express");
 
 const app = express();
 const cors = require('cors');
-const chats = require("./chats.json");
+const texts = require("./messages.json");
 
 app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 
-// const welcomeMessage = {
-//   "id":0,
-//   "from": "Bart",
-//   "text": "Welcome to CYF chat system!"
-// }
+const welcomeMessage = {
+  "id":0,
+  "from": "Bart",
+  "text": "Welcome to CYF chat system!"
+}
 
 //This array is our "data store".
 //We will start with one message in the array.
 //Note: messages will be lost when Glitch restarts our server.
- // const messages = [welcomeMessage]
+ const messages = [welcomeMessage]
 
-app.post('/chats', function(request, response) {
-  const chat =request.body
-  console.log(chat)
-  chat.id =chats.length+1
-  chats.push(chat)
-  response.status(201).json(chat) 
+app.post('/messages', function(request, response) {
+  const message =request.body
+  console.log(message)
+  message.id =messages.length+1
+  messages.push(message)
+  response.status(201).json(message) 
   
   app.get("/chats", function(request, response){
-  response.json(chats);
+  response.json(messages);
 });
   
 });
