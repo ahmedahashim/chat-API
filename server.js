@@ -22,6 +22,7 @@ app.get("/chats", function(request, response){
 });
 app.post('/chats', function(request, response) {
   const chat =request.body
+  console.log(chat)
   chat.id =chats.length+1
   chats.push(chat)
   response.status(201).json(chat)
