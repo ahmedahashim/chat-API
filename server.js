@@ -11,7 +11,13 @@ const welcomeMessage = {
   id:0,
   from: "Bart",
   text: "Welcome to CYF chat system!"
-}
+},
+      
+      {
+        id:2,
+  from: "Ahmed",
+  text: "Welcome to CYF chat system!" 
+      }
 
 //This array is our "data store".
 //We will start with one message in the array.
