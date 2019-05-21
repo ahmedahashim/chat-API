@@ -37,8 +37,12 @@ app.get("/messages/:id",function(request, response){
 const message =messages.filter(r=>r.id==inputId)
        response.json(message)
 });
-
-app.delete("/messages/:id")
+//Delete a message, by ID
+app.delete("/messages/:id", function(request, response){
+  const inputId= request.params.id
+const message =messages.filter(r=>r.id==inputId)
+       response.sendStatus(204)
+});
 app.listen(process.env.PORT);
 app.get('/', function(request, response) {
   response.sendFile(__dirname + '/index.html');
