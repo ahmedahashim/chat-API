@@ -25,11 +25,20 @@ const welcomeMessage = {
   message.id =messages.length+1
   messages.push(message)
   response.status(201).json(message)
-    if (messages.text=""){
-  
-  response.sendStatus(400) }
+   
    });
    
+app.post('/messages', function(request, response) {
+  const message =request.body
+ 
+   if (messages.text="")
+  
+  response.sendStatus(400) 
+   
+   });
+
+
+
 //Read all messages
   app.get("/messages", function(request, response){
   response.json(messages);
