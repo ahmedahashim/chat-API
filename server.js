@@ -24,9 +24,12 @@ const welcomeMessage = {
   console.log(message)
   message.id =messages.length+1
   messages.push(message)
-  response.status(201).json(message) 
-    
-});
+  response.status(201).json(message)
+    if (messages.text=null){
+  
+  response.sendStatus(400) }
+   });
+   
 //Read all messages
   app.get("/messages", function(request, response){
   response.json(messages);
