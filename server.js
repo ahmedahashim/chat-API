@@ -21,11 +21,11 @@ const welcomeMessage = {
 //Create a new message
  app.post('/messages', function(request, response) {
   const message =request.body
-  console.log(message)
+ 
   message.id =messages.length+1
   messages.push(message)
   response.status(201).json(message)
-    if (messages.text=null){
+    if (messages.text=""){
   
   response.sendStatus(400) }
    });
