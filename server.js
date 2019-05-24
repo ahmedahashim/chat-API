@@ -42,7 +42,7 @@ app.delete("/messages/:id", function(request, response){
   const inputId= request.params.id
   console.log(inputId)
 const message =messages.filter(r=>r.id !=inputId)
-       response.Status(204).json(messages)
+       response.sendStatus(204)
 });
 app.listen(process.env.PORT);
 app.get('/', function(request, response) {
