@@ -30,10 +30,9 @@ const welcomeMessage = {
    
 app.post('/messages', function(request, response) {
   const message =request.body
- 
-   if (messages.text="")
+  message.text!= ""
   
-  response.sendStatus(400) 
+   
    
    });
 
