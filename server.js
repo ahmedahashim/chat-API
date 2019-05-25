@@ -40,7 +40,9 @@ app.get("/messages/search", function(request, response) {
   let word = request.query.term;  
   response.send(findMessagesByWord(messages,word));
 });
-
+app.get("/messages/latest", function(request, response) {
+  response.json(lodash.sample(messages));
+});
 //Read one message specified by an ID
 app.get("/messages/:id",function(request, response){
   const inputId= request.params.id
@@ -65,9 +67,9 @@ app.delete("/messages/:id", function(request, response){
 const message =messages.filter(r=>r.id !=inputId)
        response.sendStatus(204)
 });
-// function pickFromArray(arr) {
-//   return arr[Math.floor(Math.random() * arr.length)];
-// }
+function pickFromArray(arr) {
+  return arr.slice(Math.max(arr.length - 11, 1))
+}
 app.listen(process.env.PORT);
 app.get('/', function(request, response) {
   response.sendFile(__dirname + '/index.html');
