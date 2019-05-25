@@ -19,23 +19,17 @@ const welcomeMessage = {
  const messages = [welcomeMessage]
  
 //Create a new message
- app.post('/messages', function(request, response) {
-  const message =request.body
- 
+ app.post('/messages', function(request, response,err) {
+  
+  const message ={}
+  message.create(request.body).then(function(message){
   message.id =messages.length+1
   messages.push(message)
-  response.status(201).json(message)
-   
-   });
-   
-app.post('/messages', function(request, response) {
+  response.status(201).json(message)}
   
-  const message =request.body
-  message.text!= ""
-  response.sendStatus(400)
-   
-   
    });
+ 
+
 
 
 
