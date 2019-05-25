@@ -32,7 +32,7 @@ app.post('/messages', function(request, response) {
   const message =request.body
  const {text, from}=request.body
  console.log(text,from)
-  if(text.lenght===0 ||from.length===0){
+  if(text.length===0 ||from.length===0){
     response.status(400).json("enter valid data")
   }
   message.id =messages.length+1
