@@ -41,7 +41,7 @@ app.get("/messages/search", function(request, response) {
   response.send(findMessagesByWord(messages,word));
 });
 app.get("/messages/latest", function(request, response) {
-  response.json(lodash.sample(messages));
+  response.json(pickFromArray(messages));
 });
 //Read one message specified by an ID
 app.get("/messages/:id",function(request, response){
