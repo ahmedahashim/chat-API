@@ -33,7 +33,7 @@ app.post('/messages', function(request, response) {
  
   message.id =messages.length+1
   messages.push(message)
-  response.status(201).json(message)
+  response.sendStatus(201).json(message)
    });
 
 //Read all messages
