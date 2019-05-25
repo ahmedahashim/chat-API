@@ -25,7 +25,7 @@ const welcomeMessage = {
  
   message.id =messages.length+1
   messages.push(message)
-  response.Status(201).json(message)
+  response.sendStatus(201).json(message)
    });
    
 // app.post('/messages', function(request, response) {
