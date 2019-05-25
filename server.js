@@ -56,6 +56,9 @@ app.delete("/messages/:id", function(request, response){
 const message =messages.filter(r=>r.id !=inputId)
        response.sendStatus(204)
 });
+function pickFromArray(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 app.listen(process.env.PORT);
 app.get('/', function(request, response) {
   response.sendFile(__dirname + '/index.html');
