@@ -19,15 +19,7 @@ const welcomeMessage = {
 //Note: messages will be lost when Glitch restarts our server.
  const messages = [welcomeMessage]
  
-//Create a new message
-//  app.post('/messages', function(request, response) {
-//   const message =request.body
- 
-//   message.id =messages.length+1
-//   messages.push(message)
-//   response.sendStatus(201).json(message)
-//    });
-   
+//Post messages   
 app.post('/messages', function(request, response) {
   const message =request.body
  const {text, from}=request.body
