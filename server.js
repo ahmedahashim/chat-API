@@ -29,6 +29,7 @@ const welcomeMessage = {
    });
    
 app.post('/messages', function(request, response) {
+  
   const message =request.body
   message.text!= ""
   response.sendStatus(400)
