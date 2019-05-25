@@ -31,25 +31,27 @@ const welcomeMessage = {
    
 
 
-
 //Read all messages
   app.get("/messages", function(request, response){
   response.json(messages);
  });
+app.get("/messages/search", function(request, response) {
+  
+  let word = request.query.term;  
+  response.send(findMessagesByWord(messages,word));
+});
+
 //Read one message specified by an ID
 app.get("/messages/:id",function(request, response){
   const inputId= request.params.id
 const message =messages.filter(r=>r.id==inputId)
        response.json(message)
 });
-app.get("/messages/search", function(request, response) {
-  let word = request.query.term;  
-  response.send(findMessagesByWord(messages,word));
-});
+
 
 function findMessagesByWord(messages,word){
   return messages.filter(message=>{
-    return message.text.toLowerCase().includes(word.toLowerCase());
+    return message.text.toLowerCase().includes(word.toLowerCase())|| message.from.toLowerCase().includes(word.toLowerCase());;
   })
 }  
 
@@ -63,9 +65,9 @@ app.delete("/messages/:id", function(request, response){
 const message =messages.filter(r=>r.id !=inputId)
        response.sendStatus(204)
 });
-function pickFromArray(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
+// function pickFromArray(arr) {
+//   return arr[Math.floor(Math.random() * arr.length)];
+// }
 app.listen(process.env.PORT);
 app.get('/', function(request, response) {
   response.sendFile(__dirname + '/index.html');
