@@ -20,21 +20,21 @@ const welcomeMessage = {
  const messages = [welcomeMessage]
  
 //Create a new message
- app.post('/messages', function(request, response) {
-  const message =request.body
- 
-  message.id =messages.length+1
-  messages.push(message)
-  response.sendStatus(201).json(message)
-   });
-   
-// app.post('/messages', function(request, response) {
+//  app.post('/messages', function(request, response) {
 //   const message =request.body
  
 //   message.id =messages.length+1
 //   messages.push(message)
-//   response.status(201).json(message)
+//   response.sendStatus(201).json(message)
 //    });
+   
+app.post('/messages', function(request, response) {
+  const message =request.body
+ 
+  message.id =messages.length+1
+  messages.push(message)
+  response.status(201).json(message)
+   });
 
 //Read all messages
   app.get("/messages", function(request, response){
