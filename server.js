@@ -49,6 +49,20 @@ app.get("/messages/:id",function(request, response){
 const message =messages.filter(r=>r.id==inputId)
        response.json(message)
 });
+app.get("/messages/search", function(request, response) {
+  let word = request.query.term;  
+  response.send(findmessagesByWord(messages,word));
+});
+
+function findmessagesByWord(messages,word){
+  return messages.filter(message=>{
+    return message.text.toLowerCase().includes(word.toLowerCase())|| message.from.toLowerCase().includes(word.toLowerCase());
+  })
+}  
+
+
+
+
 //Delete a message, by ID
 app.delete("/messages/:id", function(request, response){
   const inputId= request.params.id
