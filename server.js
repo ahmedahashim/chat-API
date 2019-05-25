@@ -29,14 +29,6 @@ const welcomeMessage = {
    
    });
    
-app.post('/messages', function(request, response) {
-  
-  const message =request.body
-  message.text!= ""
-  response.sendStatus(400)
-   
-   
-   });
 
 
 
@@ -57,7 +49,7 @@ app.get("/messages/search", function(request, response) {
 
 function findmessagesByWord(messages,word){
   return messages.filter(message=>{
-    return message.text.toLowerCase().includes(word.toLowerCase())|| message.from.toLowerCase().includes(word.toLowerCase());
+    return message.text.toLowerCase().includes(word.toLowerCase());
   })
 }  
 
