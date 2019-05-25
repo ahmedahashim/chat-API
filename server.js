@@ -35,6 +35,7 @@ const welcomeMessage = {
   app.get("/messages", function(request, response){
   response.json(messages);
  });
+//search massagesByTerm
 app.get("/messages/search", function(request, response) {
   
   let word = request.query.term;  
