@@ -26,10 +26,15 @@ const welcomeMessage = {
   message.id =messages.length+1
   messages.push(message)
   response.status(201).json(message)
-   
    });
    
-
+app.post('/messages', function(request, response) {
+  const message =request.body
+ 
+  message.id =messages.length+1
+  messages.push(message)
+  response.status(201).json(message)
+   });
 
 //Read all messages
   app.get("/messages", function(request, response){
@@ -39,7 +44,7 @@ const welcomeMessage = {
 app.get("/messages/search", function(request, response) {
   
   let word = request.query.term;  
-  response.send(findMessagesByWord(messages,word));
+  response.send(findMessagesByWordOrFrom(messages,word));
 });
 //Read only the most recent 10 messages
 app.get("/messages/latest", function(request, response) {
@@ -53,15 +58,11 @@ const message =messages.filter(r=>r.id==inputId)
 });
 
 //function to find messagesByWord
-function findMessagesByWord(messages,word){
+function findMessagesByWordOrFrom(messages,word){
   return messages.filter(message=>{
     return message.text.toLowerCase().includes(word.toLowerCase())|| message.from.toLowerCase().includes(word.toLowerCase());;
   })
 }  
-
-
-
-
 //Delete a message, by ID
 app.delete("/messages/:id", function(request, response){
   const inputId= request.params.id
