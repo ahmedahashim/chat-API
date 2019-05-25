@@ -44,10 +44,10 @@ const message =messages.filter(r=>r.id==inputId)
 });
 app.get("/messages/search", function(request, response) {
   let word = request.query.term;  
-  response.send(findmessagesByWord(messages,word));
+  response.send(findMessagesByWord(messages,word));
 });
 
-function findmessagesByWord(messages,word){
+function findMessagesByWord(messages,word){
   return messages.filter(message=>{
     return message.text.toLowerCase().includes(word.toLowerCase());
   })
