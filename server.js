@@ -35,12 +35,13 @@ const welcomeMessage = {
   app.get("/messages", function(request, response){
   response.json(messages);
  });
-//search massagesByTerm
+//search massagesByWordOrFrom
 app.get("/messages/search", function(request, response) {
   
   let word = request.query.term;  
   response.send(findMessagesByWord(messages,word));
 });
+//Read only the most recent 10 messages
 app.get("/messages/latest", function(request, response) {
   response.json(pickFromArray(messages));
 });
@@ -51,7 +52,7 @@ const message =messages.filter(r=>r.id==inputId)
        response.json(message)
 });
 
-
+//function to find messagesByWord
 function findMessagesByWord(messages,word){
   return messages.filter(message=>{
     return message.text.toLowerCase().includes(word.toLowerCase())|| message.from.toLowerCase().includes(word.toLowerCase());;
