@@ -25,16 +25,16 @@ const welcomeMessage = {
  
   message.id =messages.length+1
   messages.push(message)
-  response.status(201).json(message)
+  response.Status(201).json(message)
    });
    
-app.post('/messages', function(request, response) {
-  const message =request.body
+// app.post('/messages', function(request, response) {
+//   const message =request.body
  
-  message.id =messages.length+1
-  messages.push(message)
-  response.status(201).json(message)
-   });
+//   message.id =messages.length+1
+//   messages.push(message)
+//   response.status(201).json(message)
+//    });
 
 //Read all messages
   app.get("/messages", function(request, response){
