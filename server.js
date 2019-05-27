@@ -27,9 +27,13 @@ app.post('/messages', function(request, response) {
   if(text.length===0 ||from.length===0){
     response.status(400).json("enter valid data")
   }
+  
+  
   message.id =messages.length+1
+    message.timeSent =new Date();
   messages.push(message)
   response.status(201).json(message)
+
    });
 
 //Read all messages
