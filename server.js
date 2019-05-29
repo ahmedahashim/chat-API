@@ -59,8 +59,8 @@ app.get("/messages/latest", function(request, response) {
 
 app.get("/messages/:id", (req, res)=>{
   const message = messages.find(b => b.id === parseInt(req.params.id));
-  if (!message) return res.status(404).send('No booking with this Id');
-   return res.status(200).send(booking)
+  if (!message) return res.status(404).send('No message with this Id');
+   return res.status(200).send(message)
 })
 //function to find messagesByWord
 function findMessagesByWordOrFrom(messages,word){
