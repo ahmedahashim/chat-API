@@ -51,12 +51,17 @@ app.get("/messages/latest", function(request, response) {
   response.json(pickFromArray(messages));
 });
 //Read one message specified by an ID
-app.get("/messages/:id",function(request, response){
-  const inputId= request.params.id
-const message =messages.filter(r=>r.id==inputId)
-       response.json(message)
-});
+// app.get("/messages/:id",function(request, response){
+//   const inputId= request.params.id
+// const message =messages.filter(r=>r.id==inputId)
+//        response.json(message)
+// });
 
+app.get("/messages/:id", (req, res)=>{
+  const message = messages.find(b => b.id === parseInt(req.params.id));
+  if (!message) return res.status(404).send('No booking with this Id');
+   return res.status(200).send(booking)
+})
 //function to find messagesByWord
 function findMessagesByWordOrFrom(messages,word){
   return messages.filter(message=>{
