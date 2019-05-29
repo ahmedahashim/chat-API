@@ -73,7 +73,7 @@ app.delete("/messages/:id", function(request, response){
   const inputId= request.params.id
   console.log(inputId)
 const message =messages.filter(r=>r.id !=inputId)
-       response.sendStatus(204)
+       response.status(204)
 });
 function pickFromArray(arr) {
   return arr.slice(Math.max(arr.length - 11, 1))
