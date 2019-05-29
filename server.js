@@ -20,21 +20,18 @@ const welcomeMessage = {
  const messages = [welcomeMessage]
  
 //Post messages   
-app.post('/messages', function(request, response) {
-  const message =request.body
- const {text, from}=request.body
- console.log(text,from)
-  if(text.length===0 ||from.length===0){
-    response.status(400).json("enter valid data")
-  }
-  
-  
-  message.id =messages.length+1
-    message.timeSent =new Date();
-  messages.push(message)
-  response.status(201).json(message)
 
-   });
+app.post('/messages', function(request, response) {
+  const message = request.body;
+  if(message.text.length > 0 && message.from.length >0 ){
+    message.id = messages.length;
+    message.timeSent = new Date();
+    messages.push(message);
+    response.sendStatus(201)
+  } else {
+    response.status(400).json("enter valid data");
+  }
+});
 
 //Read all messages
   app.get("/messages", function(request, response){
