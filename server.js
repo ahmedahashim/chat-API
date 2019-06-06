@@ -5,7 +5,7 @@ const cors = require('cors');
 const lodash = require('lodash');
  app.use(express.urlencoded({ extended: false }))
 app.use(cors())
-
+app.use(express.json())
 const welcomeMessage = {
   id:0,
   from: "Bart",
