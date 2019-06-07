@@ -66,12 +66,15 @@ function findMessagesByWordOrFrom(messages,word){
   })
 }  
 //Delete a message, by ID
-app.delete("/messages/:id", function(request, response){
-  const inputId= request.params.id
-  console.log(inputId)
-const message =messages.filter(r=>r.id !=inputId)
-       response.status(204)
-});
+
+app.delete("/messages/:id",function(request,response){
+ const inputId=request.params.id;
+  messages = messages.filter(r=>r.id !=inputId)
+    response.status(201).json(messages)
+
+
+ })
+
 function pickFromArray(arr) {
   return arr.slice(Math.max(arr.length - 11, 1))
 }
