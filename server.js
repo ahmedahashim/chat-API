@@ -66,7 +66,6 @@ function findMessagesByWordOrFrom(messages,word){
   })
 }  
 //Delete a message, by ID
-
 app.delete("/messages/:id",function(request,response){
  const inputId=request.params.id;
   messages = messages.filter(r=>r.id !=inputId)
